@@ -3,7 +3,6 @@ bin/
 *.exe
 *.test
 *.out
-go.sum
 
 # Go module cache
 vendor/
