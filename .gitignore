@@ -1,0 +1,40 @@
+# Go build artifacts
+bin/
+*.exe
+*.test
+*.out
+go.sum
+
+# Go module cache
+vendor/
+
+# Local environment variables
+.env
+
+# IDE and editor files
+.idea/
+.vscode/
+*.swp
+*.swo
+*~
+
+# Logs
+*.log
+
+# Docker
+Dockerfile
+docker-compose.yml
+docker-compose.override.yml
+!.dockerignore  # Keep .dockerignore if you create one
+__pycache__/
+
+# Migration tool artifacts (goose)
+migrate/
+
+# macOS system files
+.DS_Store
+
+# Temporary files
+*~
+*.bak
+postgres-data/
