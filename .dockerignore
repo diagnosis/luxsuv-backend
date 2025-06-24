@@ -1,0 +1,53 @@
+# flyctl launch added from .gitignore
+# Go build artifacts
+**/bin
+**/*.exe
+**/*.test
+**/*.out
+
+# Go module cache
+**/vendor
+
+# Local environment variables
+**/.env
+
+# IDE and editor files
+**/.idea
+**/.vscode
+**/*.swp
+**/*.swo
+**/*~
+
+# Logs
+**/*.log
+
+# Docker
+**/Dockerfile
+**/docker-compose.yml
+**/docker-compose.override.yml
+!**/.dockerignore  # Keep .dockerignore if you create one
+**/__pycache__
+
+# Migration tool artifacts (goose)
+**/migrate
+
+# macOS system files
+**/.DS_Store
+
+# Temporary files
+**/*~
+**/*.bak
+**/postgres-data
+
+# flyctl launch added from .idea/.gitignore
+# Default ignored files
+.idea/shelf
+.idea/workspace.xml
+# Editor-based HTTP Client requests
+.idea/httpRequests
+# Environment-dependent path to Maven home directory
+.idea/mavenHomeManager.xml
+# Datasource local storage ignored files
+.idea/dataSources
+.idea/dataSources.local.xml
+fly.toml
