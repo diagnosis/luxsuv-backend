@@ -3,6 +3,8 @@ package main
 import (
 	"context"
 	"fmt"
+	"github.com/go-chi/chi/v5"
+	"github.com/go-chi/cors"
 	_ "github.com/joho/godotenv/autoload"
 	"luxsuv-backend/handlers"
 	"luxsuv-backend/logger"
@@ -40,7 +42,18 @@ func main() {
 	driverRouter := handlers.SetupDriverRouter(repo)
 
 	// Mount routers
-	mux := http.NewServeMux()
+	mux := chi.NewRouter()
+
+	// Add CORS middleware
+	corsHandler := cors.New(cors.Options{
+		AllowedOrigins:   []string{"http://localhost:5173", "https://luxsuv-backend.fly.dev", "*"},
+		AllowedMethods:   []string{"GET", "POST", "PUT", "DELETE", "OPTIONS"},
+		AllowedHeaders:   []string{"Accept", "Authorization", "Content-Type"},
+		AllowCredentials: true,
+		MaxAge:           300, // 5 minutes
+	}).Handler
+
+	mux.Use(corsHandler)
 	mux.Handle("/rider/", http.StripPrefix("/rider", riderRouter))
 	mux.Handle("/driver/", http.StripPrefix("/driver", driverRouter))
 
